@@ -8,14 +8,15 @@ import DateGame from './DateGame';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/memory-lane" element={<MemoryLane />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/date-game" element={<DateGame />} />
-      </Routes>
-    </BrowserRouter>
-  </React.StrictMode>
+<React.StrictMode> 
+  <BrowserRouter basename="/ForP"> 
+    <Routes> 
+      <Route path="/" element={<App />} /> 
+      <Route path="/memory-lane" element={<MemoryLane />} /> 
+      <Route path="/gallery" element={<Gallery />} /> 
+      <Route path="/date-game" element={<DateGame />} /> 
+    </Routes> 
+  </BrowserRouter> 
+</React.StrictMode>
+
 );
