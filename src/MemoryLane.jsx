@@ -6,12 +6,27 @@ const memories = [
   {
     year: 'Month 1',
     title: 'The first spark',
-    text: 'The beginning of something soft, sincere, and impossible to forget.',
+    text: '`The beginning of something soft, sincere, and full of promise. Who would have thought that one day, out of nowhere, I would get a message on Instagram and it would change my life forever?
+
+It all started with a simple hello, and from that first call, where we were both so nervous and shy, our journey began. Who could have guessed that after just a few short calls, we would be talking for hours and hours, and before we knew it, we would be talking about our future together?
+
+It was the first spark of something beautiful. Our first month was full of deep conversations, getting to know each other, and slowly understanding each other’s emotional depth. The calmness you bring into my life is something I had never felt before.
+
+How can I forget the kind of mess I was in at that time? But just a few calls with you made me feel so sure about you. I am so glad, and so lucky, that I met you. As the days went by, the length of our calls grew too. I still remember the comfort I felt during our emotional conversations. The way you made me feel loved and cared for is something I will always cherish.
+
+I don’t know how, but I was sure about you in the first month itself.`',
   },
   {
     year: 'Month 2',
     title: 'The comfort of your presence',
-    text: 'The simple joy of being understood, laughed with, and cherished.',
+    text: '`Now that we have a video call almost every day, would you believe it if I said it took us a month to get on our first video call?
+
+The second month came into our lives like a roller coaster, testing whether we were really meant for each other and whether the spark we felt in the first month was something real. Just when we thought everything was going so well, our story was already being tested. Our conversations deepened, and we both started being more honest with each other.
+
+The heavy conversations about the past, the intense conversation with your dad on the very first call, and suddenly feeling the struggle of staying in touch while being in different time zones. Who would have thought we would come out of all of it even stronger?
+
+Working through all of this didn’t feel so hard because of your calmness. All the struggles we had this month actually brought us even closer. Somewhere along the way, you stopped being just Preeti H in my phone and became Preet♥️ in my heart.
+By the end of the second month, I had already confessed how sure I am about you.`',
   },
   {
     year: 'Month 3',
