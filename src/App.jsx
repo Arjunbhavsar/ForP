@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const AUDIO_SRC = `${import.meta.env.BASE_URL}audio/Tujhko.mp3`;
 const startDate = new Date('2026-02-26T00:00:00');
@@ -83,29 +83,6 @@ const timeline = [
   'And now, I feel grateful for every step we have shared together.',
 ];
 
-const memoryLaneEntries = [
-  {
-    year: 'Month 1',
-    title: 'The first spark',
-    text: 'The beginning of something soft, sincere, and impossible to forget.',
-  },
-  {
-    year: 'Month 2',
-    title: 'The comfort of your presence',
-    text: 'The simple joy of being understood, laughed with, and cherished.',
-  },
-  {
-    year: 'Month 3',
-    title: 'The little things',
-    text: 'The tiny moments that slowly became our favorite memories.',
-  },
-  {
-    year: 'Month 4',
-    title: 'The feeling of us',
-    text: 'A beautiful chapter that feels tender, real, and deeply ours.',
-  },
-];
-
 const galleryPreview = [
   {
     title: 'The first time it felt real',
@@ -124,56 +101,67 @@ const galleryPreview = [
   },
 ];
 
-function App() {
+function usePageAudio(audioSrc) {
+  const audioRef = useRef(null);
+
   useEffect(() => {
-    const audio = new Audio(AUDIO_SRC);
+    const audio = new Audio(audioSrc);
+    audioRef.current = audio;
     audio.loop = true;
     audio.volume = 0.35;
     audio.preload = 'auto';
 
-    let unlocked = false;
-
-    const attemptPlay = async () => {
-      if (unlocked) return;
+    const tryPlay = async () => {
+      if (!audio.paused) return;
 
       try {
         await audio.play();
-        unlocked = true;
       } catch {
-        // Browser may block autoplay until the user interacts first.
+        // Browsers may still block playback until a direct user gesture occurs.
       }
-    };
-
-    const handleInteraction = () => {
-      attemptPlay();
     };
 
     const handleVisibility = () => {
       if (document.visibilityState === 'visible') {
-        attemptPlay();
+        tryPlay();
       }
     };
 
-    window.addEventListener('click', handleInteraction);
-    window.addEventListener('keydown', handleInteraction);
-    window.addEventListener('touchstart', handleInteraction);
+    tryPlay();
     document.addEventListener('visibilitychange', handleVisibility);
 
-    attemptPlay();
-
     return () => {
-      window.removeEventListener('click', handleInteraction);
-      window.removeEventListener('keydown', handleInteraction);
-      window.removeEventListener('touchstart', handleInteraction);
       document.removeEventListener('visibilitychange', handleVisibility);
       audio.pause();
       audio.currentTime = 0;
       audio.src = '';
     };
-  }, []);
+  }, [audioSrc]);
+
+  const handleAudioStart = async () => {
+    const audio = audioRef.current;
+    if (!audio || !audio.paused) return;
+
+    try {
+      await audio.play();
+    } catch {
+      // Keep trying on later interactions.
+    }
+  };
+
+  return { handleAudioStart };
+}
+
+function App() {
+  const { handleAudioStart } = usePageAudio(AUDIO_SRC);
 
   return (
-    <div className="page-shell">
+    <div
+      className="page-shell"
+      onPointerDownCapture={handleAudioStart}
+      onTouchStartCapture={handleAudioStart}
+      onKeyDownCapture={handleAudioStart}
+    >
       <header id="hero" className="hero">
         <LiveTimer />
         <p className="eyebrow">A timeless note for you</p>
@@ -185,9 +173,6 @@ function App() {
         <div className="hero-actions">
           <a className="primary-btn" href="#memories">
             Read our memories
-          </a>
-          <a className="secondary-btn" href="#/memory-lane">
-            Visit memory lane
           </a>
           <a className="secondary-btn" href="#/gallery">
             Open the gallery
@@ -241,27 +226,6 @@ function App() {
                 <p>{entry}</p>
               </div>
             ))}
-          </div>
-        </section>
-
-        <section id="memory-lane-section" className="story-section">
-          <div className="section-heading">
-            <p className="section-label">A walk through our story</p>
-            <h2>Memory Lane</h2>
-          </div>
-          <div className="memory-lane-preview-list">
-            {memoryLaneEntries.map((entry) => (
-              <article key={entry.title} className="memory-lane-preview-item">
-                <p className="memory-year">{entry.year}</p>
-                <h3>{entry.title}</h3>
-                <p>{entry.text}</p>
-              </article>
-            ))}
-          </div>
-          <div className="section-actions">
-            <a className="secondary-btn" href="#/memory-lane">
-              Open the full memory lane
-            </a>
           </div>
         </section>
 

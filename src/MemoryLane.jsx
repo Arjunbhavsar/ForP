@@ -1,6 +1,57 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 const AUDIO_SRC = `${import.meta.env.BASE_URL}audio/Leher.mp3`;
+
+function usePageAudio(audioSrc) {
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    const audio = new Audio(audioSrc);
+    audioRef.current = audio;
+    audio.loop = true;
+    audio.volume = 0.35;
+    audio.preload = 'auto';
+
+    const tryPlay = async () => {
+      if (!audio.paused) return;
+
+      try {
+        await audio.play();
+      } catch {
+        // Browsers may still block playback until a direct user gesture occurs.
+      }
+    };
+
+    const handleVisibility = () => {
+      if (document.visibilityState === 'visible') {
+        tryPlay();
+      }
+    };
+
+    tryPlay();
+    document.addEventListener('visibilitychange', handleVisibility);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibility);
+      audio.pause();
+      audio.currentTime = 0;
+      audio.src = '';
+    };
+  }, [audioSrc]);
+
+  const handleAudioStart = async () => {
+    const audio = audioRef.current;
+    if (!audio || !audio.paused) return;
+
+    try {
+      await audio.play();
+    } catch {
+      // Keep trying on later interactions.
+    }
+  };
+
+  return { handleAudioStart };
+}
 
 const memories = [
   {
@@ -25,8 +76,8 @@ By the end of the second month, I had already confessed how sure I am about you.
   },
   {
     year: 'Month 3',
-    title: 'The little things',
-    text: 'The tiny moments that slowly became our favorite memories.',
+    title: 'The little things we started experiencing together',
+    text: `It’s the tiny moments that have slowly become my absolute favorite memories. The story of your very first gift is unforgettable—I still remember the look on your face when I told you it was stolen! Seeing how much it hurt you made me realize just how deeply you care about us. Replacing it together only made it more special. This month has been such a beautiful chapter of new experiences for us: our first virtual date, tracking our days and distance on the Couple Pulse app, and starting our first movie together (even if we haven't finished it yet!). To an outsider, these little things might seem simple or cliché, but to me, they are incredibly precious. They prove that all the effort we put into keeping our relationship exciting truly matters and keeps us both in such a happy place. God only knows what crazy adventures are waiting for us, but I know we’re going to have the absolute best time facing them together! 💖✨`,
   },
   {
     year: 'Month 4',
@@ -36,30 +87,15 @@ By the end of the second month, I had already confessed how sure I am about you.
 ];
 
 function MemoryLane() {
-  useEffect(() => {
-    const audio = new Audio(AUDIO_SRC);
-    audio.loop = true;
-    audio.volume = 0.35;
-
-    const playAudio = async () => {
-      try {
-        await audio.play();
-      } catch {
-        // Autoplay may be blocked until the user interacts with the page.
-      }
-    };
-
-    playAudio();
-
-    return () => {
-      audio.pause();
-      audio.currentTime = 0;
-      audio.src = '';
-    };
-  }, []);
+  const { handleAudioStart } = usePageAudio(AUDIO_SRC);
 
   return (
-    <div className="memory-lane-page">
+    <div
+      className="memory-lane-page"
+      onPointerDownCapture={handleAudioStart}
+      onTouchStartCapture={handleAudioStart}
+      onKeyDownCapture={handleAudioStart}
+    >
       <header className="memory-lane-hero">
         <p className="eyebrow">A walk through our memories</p>
         <h1>Memory Lane</h1>

@@ -1,6 +1,57 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 const AUDIO_SRC = `${import.meta.env.BASE_URL}audio/Mashooqa.mp3`;
+
+function usePageAudio(audioSrc) {
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    const audio = new Audio(audioSrc);
+    audioRef.current = audio;
+    audio.loop = true;
+    audio.volume = 0.35;
+    audio.preload = 'auto';
+
+    const tryPlay = async () => {
+      if (!audio.paused) return;
+
+      try {
+        await audio.play();
+      } catch {
+        // Browsers may still block playback until a direct user gesture occurs.
+      }
+    };
+
+    const handleVisibility = () => {
+      if (document.visibilityState === 'visible') {
+        tryPlay();
+      }
+    };
+
+    tryPlay();
+    document.addEventListener('visibilitychange', handleVisibility);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibility);
+      audio.pause();
+      audio.currentTime = 0;
+      audio.src = '';
+    };
+  }, [audioSrc]);
+
+  const handleAudioStart = async () => {
+    const audio = audioRef.current;
+    if (!audio || !audio.paused) return;
+
+    try {
+      await audio.play();
+    } catch {
+      // Keep trying on later interactions.
+    }
+  };
+
+  return { handleAudioStart };
+}
 
 const galleryItems = [
   {
@@ -30,30 +81,15 @@ const galleryItems = [
 ];
 
 function Gallery() {
-  useEffect(() => {
-    const audio = new Audio(AUDIO_SRC);
-    audio.loop = true;
-    audio.volume = 0.35;
-
-    const playAudio = async () => {
-      try {
-        await audio.play();
-      } catch {
-        // Autoplay may be blocked until the user interacts with the page.
-      }
-    };
-
-    playAudio();
-
-    return () => {
-      audio.pause();
-      audio.currentTime = 0;
-      audio.src = '';
-    };
-  }, []);
+  const { handleAudioStart } = usePageAudio(AUDIO_SRC);
 
   return (
-    <div className="gallery-page">
+    <div
+      className="gallery-page"
+      onPointerDownCapture={handleAudioStart}
+      onTouchStartCapture={handleAudioStart}
+      onKeyDownCapture={handleAudioStart}
+    >
       <header className="gallery-hero">
         <p className="eyebrow">A walk through our memories</p>
         <h1>Where our little story lives</h1>
