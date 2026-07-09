@@ -66,7 +66,7 @@ const galleryItems = [
     chapter: 'Favorite look - Arjun',
     title: 'the look she adores',
     story:
-      'A special frame that marks how much these shared moments mean to me. It feels personal and close to the heart.',
+      'If this photo makes your heart happy, then it has already become my favorite too.',
     quote: 'The heart remembers what the eyes once saw.',
     image: `${import.meta.env.BASE_URL}gallery/Arjun.jpg`,
   },
@@ -79,7 +79,7 @@ const galleryItems = [
     image: `${import.meta.env.BASE_URL}gallery/piano.JPG`,
   },
   {
-    chapter: 'Chapter Two',
+    chapter: 'Our first date',
     title: 'Our first date frame',
     story:
       'A tiny moment from one of our sweetest date memories. The joy in this frame still feels as fresh as that day.',
@@ -87,7 +87,7 @@ const galleryItems = [
     image: `${import.meta.env.BASE_URL}gallery/firstdate.JPG`,
   },
   {
-    chapter: 'Chapter Three',
+    chapter: 'Virtual birthday',
     title: 'Birthday call memory',
     story:
       'That call felt full of smiles and celebration. You could feel the happiness radiating through the phone.',
