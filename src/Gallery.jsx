@@ -56,9 +56,9 @@ function usePageAudio(audioSrc) {
 const galleryItems = [
   {
     chapter: 'First look - Preeti',
-    title: 'The look I always remember',
+    title: 'I fell for you many times, but this look made me fall all over again',
     story:
-      'Some pictures stay with you forever, and this is one of them. this picture still gives me jitters .',
+      'Some pictures stay with you forever, and this is one of them. Grace, beauty, and my whole heart in one frame.',
     quote: 'Some looks say everything without a word.',
     image: `${import.meta.env.BASE_URL}gallery/firstlook.JPG`,
   },
