@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-const AUDIO_SRC = `${import.meta.env.BASE_URL}audio/Tujhko.mp3`;
+const AUDIO_SRC = `${import.meta.env.BASE_URL}audio/Khat.mp3`;
 const startDate = new Date('2026-02-26T00:00:00');
 
 function getTimeTogether() {
