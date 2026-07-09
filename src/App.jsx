@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-const AUDIO_SRC = `${import.meta.env.BASE_URL}audio/Khat.mp3`;
+const AUDIO_SRC = `${import.meta.env.BASE_URL}audio/Khat-home.mp3`;
 const startDate = new Date('2026-02-26T00:00:00');
 
 function getTimeTogether() {
@@ -87,7 +87,7 @@ const galleryPreview = [
   {
     title: 'The first time it felt real',
     story: 'A quiet beginning that felt gentle, warm, and impossible to forget.',
-    image: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80',
+    image: 'https://drive.google.com/file/d/1W2RCawSZKh_nTNB0p6MDqeqNhM2J6pDu/view?usp=drive_link',
   },
   {
     title: 'The comfort of your presence',
@@ -105,11 +105,14 @@ function usePageAudio(audioSrc) {
   const audioRef = useRef(null);
 
   useEffect(() => {
-    const audio = new Audio(audioSrc);
-    audioRef.current = audio;
+    const audio = audioRef.current;
+    if (!audio) return undefined;
+
+    audio.src = audioSrc;
     audio.loop = true;
     audio.volume = 0.35;
     audio.preload = 'auto';
+    audio.playsInline = true;
 
     const tryPlay = async () => {
       if (!audio.paused) return;
@@ -127,14 +130,23 @@ function usePageAudio(audioSrc) {
       }
     };
 
+    const handleCanPlay = () => {
+      tryPlay();
+    };
+
     tryPlay();
+    audio.addEventListener('canplay', handleCanPlay);
+    audio.addEventListener('loadeddata', handleCanPlay);
     document.addEventListener('visibilitychange', handleVisibility);
 
     return () => {
+      audio.removeEventListener('canplay', handleCanPlay);
+      audio.removeEventListener('loadeddata', handleCanPlay);
       document.removeEventListener('visibilitychange', handleVisibility);
       audio.pause();
       audio.currentTime = 0;
-      audio.src = '';
+      audio.removeAttribute('src');
+      audio.load();
     };
   }, [audioSrc]);
 
@@ -168,6 +180,7 @@ function App() {
       onTouchStartCapture={handleAudioStart}
       onKeyDownCapture={handleAudioStart}
     >
+      <audio ref={audioRef} autoPlay hidden />
       <header id="hero" className="hero">
         <LiveTimer />
         <p className="eyebrow">A timeless note for you</p>
