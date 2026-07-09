@@ -186,7 +186,7 @@ function App() {
         <p className="eyebrow">A timeless note for you</p>
         <h1>For Preeti</h1>
         <p className="hero-copy">
-          In these last four months, my heart has learned the quiet beauty of your presence — the gentle laughter,
+          In these last few months, my heart has learned the quiet beauty of your presence — the gentle laughter,
           the thoughtful moments, and the way ordinary days have become something I never want to forget.
         </p>
         <div className="hero-actions">
@@ -222,7 +222,7 @@ function App() {
             <p className="section-label">My heart in words</p>
             <h2>A note from me</h2>
             <p>
-              Preeti, you have made these past four months feel gentle, exciting, and deeply meaningful. I keep finding
+              Preeti, you have made these past few months feel gentle, exciting, and deeply meaningful. I keep finding
               myself smiling when I think about the memories we have made together, and I hope this small page helps
               capture just a glimpse of how truly special you are to me.
             </p>
@@ -237,7 +237,7 @@ function App() {
         <section className="timeline-section">
           <div className="section-heading">
             <p className="section-label">Through the months</p>
-            <h2>Four months, one beautiful chapter</h2>
+            <h2>Arjun and Preeti: one beautiful chapter</h2>
           </div>
           <div className="timeline">
             {timeline.map((entry, index) => (
