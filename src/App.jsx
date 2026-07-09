@@ -155,6 +155,12 @@ function usePageAudio(audioSrc) {
 function App() {
   const { handleAudioStart } = usePageAudio(AUDIO_SRC);
 
+  const handleReadMemories = () => {
+    const section = document.getElementById('memories');
+    if (!section) return;
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
     <div
       className="page-shell"
@@ -171,9 +177,10 @@ function App() {
           the thoughtful moments, and the way ordinary days have become something I never want to forget.
         </p>
         <div className="hero-actions">
-          <a className="primary-btn" href="#memories">
+          {/* <button className="primary-btn" type="button" onClick={handleReadMemories}>
             Read our memories
-          </a>
+          </button> */}
+          <a href="#/memory-lane" className="secondary-btn">Continue to memory lane</a>
           <a className="secondary-btn" href="#/gallery">
             Open the gallery
           </a>

@@ -341,6 +341,11 @@ footer {
   align-items: flex-start;
 }
 
+.memory-lane-card p {
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
 .memory-number {
   font-size: 1.3rem;
   font-weight: 700;
