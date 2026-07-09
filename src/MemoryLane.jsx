@@ -81,8 +81,8 @@ By the end of the second month, I had already confessed how sure I am about you.
   },
   {
     year: 'Month 4',
-    title: 'The feeling of us',
-    text: 'A beautiful chapter that feels tender, real, and deeply ours.',
+    title: 'The feeling of us together',
+    text: `We are writing a beautiful chapter right now—one that is tender, authentic, and completely ours. 💞 I will never forget the day we chose to step into the next level of our relationship and truly commit to a future together. Whispering "I love you" to each other felt like cosmic timing; everything just clicked. Even though we had gone through such intense conversations that day, your confession washed over me with a sudden, beautiful relief that I can still feel. 🌊This month brought a monumental milestone: my parents traveling to meet their daughter-in-law for the first time. 💍✨ That day is officially locked away as one of the absolute happiest moments of my life. You were so beautifully nervous, and even though my words couldn't completely calm you, being up with you at 4:00 AM on the phone just to hold your hand from afar meant the world to me. Of course, you absolutely charmed them all, winning them over with the exact same innocent, radiant smile that captured my heart. It made me realize how incredibly blessed I am. This month gave us both the jitters and the ultimate relief, bringing us closer than ever. 🔐✨`,
   },
 ];
 
