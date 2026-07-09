@@ -59,8 +59,8 @@ function DateGame() {
               just you, me, and a little bit of magic.
             </p>
             <div className="date-actions">
-              <a href="/" className="primary-btn">Back home</a>
-              <a href="/gallery" className="secondary-btn">See our memories</a>
+              <a href="#/" className="primary-btn">Back home</a>
+              <a href="#/gallery" className="secondary-btn">See our memories</a>
             </div>
           </div>
         )}

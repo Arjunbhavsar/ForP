@@ -77,8 +77,8 @@ function Gallery() {
       </main>
 
       <footer className="memory-footer">
-        <a href="/memory-lane" className="primary-btn">Continue to memory lane</a>
-        <a href="/" className="secondary-btn">Back to the beginning</a>
+        <a href="#/memory-lane" className="primary-btn">Continue to memory lane</a>
+        <a href="#/" className="secondary-btn">Back to the beginning</a>
       </footer>
     </div>
   );

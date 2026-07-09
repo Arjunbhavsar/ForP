@@ -186,10 +186,10 @@ function App() {
           <a className="primary-btn" href="#memories">
             Read our memories
           </a>
-          <a className="secondary-btn" href="/memory-lane">
+          <a className="secondary-btn" href="#/memory-lane">
             Visit memory lane
           </a>
-          <a className="secondary-btn" href="/gallery">
+          <a className="secondary-btn" href="#/gallery">
             Open the gallery
           </a>
         </div>
@@ -259,7 +259,7 @@ function App() {
             ))}
           </div>
           <div className="section-actions">
-            <a className="secondary-btn" href="/memory-lane">
+            <a className="secondary-btn" href="#/memory-lane">
               Open the full memory lane
             </a>
           </div>
@@ -282,7 +282,7 @@ function App() {
             ))}
           </div>
           <div className="section-actions">
-            <a className="secondary-btn" href="/gallery">
+            <a className="secondary-btn" href="#/gallery">
               Open the full gallery
             </a>
           </div>
