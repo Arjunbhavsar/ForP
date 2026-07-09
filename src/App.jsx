@@ -87,17 +87,17 @@ const galleryPreview = [
   {
     title: 'The first time it felt real',
     story: 'A quiet beginning that felt gentle, warm, and impossible to forget.',
-    image: 'https://drive.google.com/file/d/1W2RCawSZKh_nTNB0p6MDqeqNhM2J6pDu/view?usp=drive_link',
+    image: `${import.meta.env.BASE_URL}gallery/piano.jpg`,
   },
   {
     title: 'The comfort of your presence',
     story: 'The calm, the smiles, and the way ordinary days felt tender with you.',
-    image: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=80',
+    image: `${import.meta.env.BASE_URL}gallery/call-heart.jpg`,
   },
   {
     title: 'The little memories we kept',
     story: 'Small joys, shared laughter, and moments that stayed long after the day ended.',
-    image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80',
+    image: `${import.meta.env.BASE_URL}gallery/video-call.jpg`,
   },
 ];
 
@@ -161,11 +161,11 @@ function usePageAudio(audioSrc) {
     }
   };
 
-  return { handleAudioStart };
+  return { audioRef, handleAudioStart };
 }
 
 function App() {
-  const { handleAudioStart } = usePageAudio(AUDIO_SRC);
+  const { audioRef, handleAudioStart } = usePageAudio(AUDIO_SRC);
 
   const handleReadMemories = () => {
     const section = document.getElementById('memories');
