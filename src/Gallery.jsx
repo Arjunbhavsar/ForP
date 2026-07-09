@@ -60,31 +60,39 @@ const galleryItems = [
     story:
       'A beautiful little frame of you at the piano, completely in your own world. It feels graceful, calm, and exactly like the kind of memory I want to keep forever.',
     quote: 'Some moments do not need words to stay unforgettable.',
-    image: `${import.meta.env.BASE_URL}gallery/piano.jpg`,
+    image: `${import.meta.env.BASE_URL}gallery/piano.JPG`,
   },
   {
     chapter: 'Chapter Two',
-    title: 'Our little heart on call',
+    title: 'Our first date frame',
     story:
-      'Even from far away, we still found a way to make the screen feel close. That little heart shape says everything about us in one simple moment.',
-    quote: 'Distance means very little when the feeling is real.',
-    image: `${import.meta.env.BASE_URL}gallery/call-heart.jpg`,
+      'A tiny moment from one of our sweetest date memories. The joy in this frame still feels as fresh as that day.',
+    quote: 'Some dates end, but their warmth does not.',
+    image: `${import.meta.env.BASE_URL}gallery/firstdate.JPG`,
   },
   {
     chapter: 'Chapter Three',
-    title: 'The calls I never want to forget',
+    title: 'Birthday call memory',
     story:
-      'The ordinary calls became some of the most meaningful parts of our days. They held laughter, comfort, and the kind of closeness that stays with me long after they end.',
-    quote: 'The smallest routines often become the biggest treasures.',
-    image: `${import.meta.env.BASE_URL}gallery/video-call.jpg`,
+      'That call felt full of smiles and celebration. It is one of those snapshots that instantly brings back the whole moment.',
+    quote: 'Happiness looks best when it is shared.',
+    image: `${import.meta.env.BASE_URL}gallery/birthday.PNG`,
   },
   {
     chapter: 'Chapter Four',
-    title: 'You, glowing in tradition',
+    title: 'The look I always remember',
     story:
-      'This picture feels timeless. It holds beauty, warmth, and the quiet pride of seeing you look so radiant in a moment that already feels special to remember.',
-    quote: 'Some pictures feel like devotion turned into memory.',
-    image: `${import.meta.env.BASE_URL}gallery/festival.jpg`,
+      'Some pictures stay with you forever, and this is one of them. It is calm, beautiful, and full of feeling.',
+    quote: 'Some looks say everything without a word.',
+    image: `${import.meta.env.BASE_URL}gallery/firstlook.JPG`,
+  },
+  {
+    chapter: 'Chapter Five',
+    title: 'A memory of us',
+    story:
+      'A special frame that marks how much these shared moments mean to me. It feels personal and close to the heart.',
+    quote: 'The heart remembers what the eyes once saw.',
+    image: `${import.meta.env.BASE_URL}gallery/Arjun.jpg`,
   },
 ];
 

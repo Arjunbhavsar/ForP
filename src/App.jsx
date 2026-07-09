@@ -87,17 +87,17 @@ const galleryPreview = [
   {
     title: 'The first time it felt real',
     story: 'A quiet beginning that felt gentle, warm, and impossible to forget.',
-    image: `${import.meta.env.BASE_URL}gallery/piano.jpg`,
+    image: `${import.meta.env.BASE_URL}gallery/piano.JPG`,
   },
   {
     title: 'The comfort of your presence',
     story: 'The calm, the smiles, and the way ordinary days felt tender with you.',
-    image: `${import.meta.env.BASE_URL}gallery/call-heart.jpg`,
+    image: `${import.meta.env.BASE_URL}gallery/firstdate.JPG`,
   },
   {
     title: 'The little memories we kept',
     story: 'Small joys, shared laughter, and moments that stayed long after the day ended.',
-    image: `${import.meta.env.BASE_URL}gallery/video-call.jpg`,
+    image: `${import.meta.env.BASE_URL}gallery/birthday.PNG`,
   },
 ];
 
