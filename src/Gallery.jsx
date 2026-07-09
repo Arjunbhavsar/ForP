@@ -55,10 +55,26 @@ function usePageAudio(audioSrc) {
 
 const galleryItems = [
   {
-    chapter: 'Chapter One',
+    chapter: 'First look - Preeti',
+    title: 'The look I always remember',
+    story:
+      'Some pictures stay with you forever, and this is one of them. this picture still gives me jitters .',
+    quote: 'Some looks say everything without a word.',
+    image: `${import.meta.env.BASE_URL}gallery/firstlook.JPG`,
+  },
+  {
+    chapter: 'Favorite look - Arjun',
+    title: 'the look she adores',
+    story:
+      'A special frame that marks how much these shared moments mean to me. It feels personal and close to the heart.',
+    quote: 'The heart remembers what the eyes once saw.',
+    image: `${import.meta.env.BASE_URL}gallery/Arjun.jpg`,
+  },
+  {
+    chapter: 'Candid moment',
     title: 'Your piano moment',
     story:
-      'A beautiful little frame of you at the piano, completely in your own world. It feels graceful, calm, and exactly like the kind of memory I want to keep forever.',
+      'A beautiful little frame of you at the piano, completely in your own world. It feels graceful, and exactly like the kind of memory I want to keep forever.',
     quote: 'Some moments do not need words to stay unforgettable.',
     image: `${import.meta.env.BASE_URL}gallery/piano.JPG`,
   },
@@ -74,26 +90,11 @@ const galleryItems = [
     chapter: 'Chapter Three',
     title: 'Birthday call memory',
     story:
-      'That call felt full of smiles and celebration. It is one of those snapshots that instantly brings back the whole moment.',
+      'That call felt full of smiles and celebration. You could feel the happiness radiating through the phone.',
     quote: 'Happiness looks best when it is shared.',
     image: `${import.meta.env.BASE_URL}gallery/birthday.PNG`,
   },
-  {
-    chapter: 'Chapter Four',
-    title: 'The look I always remember',
-    story:
-      'Some pictures stay with you forever, and this is one of them. It is calm, beautiful, and full of feeling.',
-    quote: 'Some looks say everything without a word.',
-    image: `${import.meta.env.BASE_URL}gallery/firstlook.JPG`,
-  },
-  {
-    chapter: 'Chapter Five',
-    title: 'A memory of us',
-    story:
-      'A special frame that marks how much these shared moments mean to me. It feels personal and close to the heart.',
-    quote: 'The heart remembers what the eyes once saw.',
-    image: `${import.meta.env.BASE_URL}gallery/Arjun.jpg`,
-  },
+  
 ];
 
 function Gallery() {
