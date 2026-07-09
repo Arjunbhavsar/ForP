@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const AUDIO_SRC = '/audio/Leher.mp3';
+const AUDIO_SRC = `${import.meta.env.BASE_URL}audio/Leher.mp3`;
 
 const memories = [
   {
